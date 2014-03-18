@@ -1,0 +1,69 @@
+#  
+# Initial bash profile for new accounts
+#
+# Department of Computer Science, Princeton University
+#
+# This file should be named .bashrc and .bash_profile in your home directory.
+# It is read ONCE when you login in order to set up your environment and
+# then EVERY time you start a new bash. Your .bash_profile file is read
+# INSTEAD of your .login file. Enter 'man bash' for an explanation of the
+# bash shell and of the .bash_profile, .bashrc, and other configuration files.
+#
+# You can customize this file for your own use. There are two types of
+# changes you can make: those which override system defaults set in the
+# file /usr/local/etc/bashrc.all and those which do not conflict with
+# any of those settings. Don't override the defaults lightly; the system
+# administrators set them for a reason. But override them, instead of
+# deleting all of them outright, so changes made later to bashrc.all to
+# support a new application will work for you, too.
+
+#
+# To add/change something which is NOT a system default, put your changes HERE:
+#
+
+#
+# System default values are set by the following line:
+#
+source /usr/local/etc/bashrc.all       # DO NOT DELETE THIS LINE, PLEASE
+
+#
+# To change a system default, put your changes HERE:
+#
+#  For example, to add to the default system paths uncomment and use
+#   the following construction:
+#
+#if [ -z ${USER_ENV} ]; then
+#   export PATH=${PATH}:/add/paths/here
+#   export USER_ENV=TRUE
+#fi
+
+
+#  uncomment and add aliases for interactive shells here
+#
+if [ -n "${PS1}" ]; then
+
+                        # Uncomment to undo our good intentions
+
+#   unset ignoreeof     # will not log you out with <ctrl-d>
+#   unset noclobber     # to keep you from erasing files unknowingly
+	                # when using '>' (output redirection)
+#   unalias rm          # remove will ask before removing files
+#   unalias mv          # move will ask before moving files on top of others
+#   unalias cp          # copy will ask before copying on top of other files
+#   unalias  
+#   unalias  
+
+
+                        # Aliases for bad typists
+
+#  alias mroe=more
+#  alias m=Mail
+#  alias lo=logout
+#  alias grp=grep
+#  alias grpe=grep
+#  alias gerp=grep
+   /bin/true	# No-op
+
+fi
+PS1='[\A \h \W]\$ '
+set -o vi
