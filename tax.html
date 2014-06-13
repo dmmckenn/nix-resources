@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Tax Program</title>
+    </head>
+    <style>
+        form {
+            padding-top:8%;
+            padding-left:8%;
+            font-size:110%;
+        }
+    </style>
+    <script>
+        function calctax() {
+            amount = Number(document.getElementById("amount").value);
+            tax = Number(document.getElementById("tax").value);
+            console.log(amount*(1+tax/100.00));
+            if (!(amount > 0 && tax > 0)) { return }
+            if (document.getElementById("add").checked) {
+                total = (amount*(1+tax/100.00)).toFixed(2);
+                document.getElementById("total").value = total;
+            }
+            else {
+                total = (amount/(1+tax/100.00)).toFixed(2);
+                document.getElementById("total").value = total;
+            }
+            document.getElementById("diff").value = Math.abs(total-amount).toFixed(2); 
+        }
+    </script>
+    <body>
+        <form div="form">
+            <input type="text" style="font-size: 110%;" nname="amount" id="amount" placeholder="amount" onkeyup="calctax()"> Amount<br> 
+            <input type="text" style="font-size: 110%;" name="tax" id="tax" placeholder="tax" onkeyup="calctax()"> Tax Rate (i.e. 8.75 for 8.75%)<br>
+            <input type="radio" name="addsub" id="add" value="add" checked="checked" autocomplete="off" onclick="calctax()">Add Tax<br>
+            <input type="radio" name="addsub" id="sub" value="sub" autocomplete="off" onclick="calctax()">Subtract Tax<br>
+            <input type="text" style="font-size: 110%;" nname="total" id="total" placeholder="total" readonly> Total</br>
+            <input type="text" style="font-size: 110%;" nname="diff" id="diff" placeholder="difference" readonly> Difference (absolute difference between amount and total)
+        </form>
+    </body>
+</html>
