@@ -16,12 +16,12 @@
             console.log(amount*(1+tax/100.00));
             if (!(amount > 0 && tax > 0)) { return }
             if (document.getElementById("add").checked) {
-                total = (amount*(1+tax/100.00)).toFixed(2);
-                document.getElementById("total").value = total;
+                total = (amount*(1+tax/100.00));
+                document.getElementById("total").value = total.toFixed(2);
             }
             else {
-                total = (amount/(1+tax/100.00)).toFixed(2);
-                document.getElementById("total").value = total;
+                total = (amount/(1+tax/100.00));
+                document.getElementById("total").value = total.toFixed(2);
             }
             document.getElementById("diff").value = Math.abs(total-amount).toFixed(2); 
         }
